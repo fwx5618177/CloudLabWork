@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 
 app.get('/calc', (req, res) => {
     const data = req.query;
-    const end = str.split('?')[1].split('&');
+    const end = data.split('?')[1].split('&');
     let a = {}
     for(let i of end) {
         let [key, value] = i.split('=');
