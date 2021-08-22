@@ -85,7 +85,7 @@ public class CalculatorConsole {
         // operand + "&numberone=" + n1
         // + "&numbertwo=" + n2);
 
-        URL url = new URL("http://localhost:8999/calc?operand=" + operand + "&numberone=" + n1 + "&numbertwo=" + n2);
+        URL url = new URL("http://52.14.40.163:8999/calc?operand=" + operand + "&numberone=" + n1 + "&numbertwo=" + n2);
         System.out.println("url:" + url);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");

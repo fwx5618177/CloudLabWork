@@ -5,7 +5,7 @@ const app = express();
 
 
 const PORT = process.env.PORT || 8999;
-const host = 'localhost';
+const host = '0.0.0.0';
 
 app.use(express.static(path.join(__dirname, 'public')));
 

@@ -3,7 +3,7 @@ const text = {
     text: 'some text to test different word\'s length'
 };
 
-axios.post('http://localhost:8999/getWordLengthFrequency', text)
+axios.post('http://52.14.40.163:8999/getWordLengthFrequency', text)
     .then(res => displayResult(res))
     .catch(err => console.error(err));
 
