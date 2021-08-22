@@ -23,16 +23,9 @@ app.get('/', (req, res) => {
 })
 
 app.get('/calc', (req, res) => {
-    const data = req.query;
-    const end = data.split('?')[1].split('&');
-    let a = {}
-    for(let i of end) {
-        let [key, value] = i.split('=');
-        a[key] = value
-    }
-
-    const { operand, numberone, numbertwo } = a;
-    console.log(`conneted: \n ${JSON.stringify(req.query)}, ${doTheMath(operand, numberone, numbertwo)}`);        
+    let { operand, numberone, numbertwo } = req.query;
+    if(operand == ' ')    operand = "+";
+    console.log(`conneted: \n ${JSON.stringify(req.query)}, ${operand} , ${doTheMath(operand, numberone, numbertwo)}`);        
     res.json(doTheMath(operand, numberone, numbertwo));        
 });
 
@@ -53,7 +46,7 @@ app.post('/getWordLengthFrequency', async (req, res) => {
 
 function doTheMath(operand, n1, n2) {
     if (operand === '+') {
-        return (n1 + n2);
+        return (parseFloat(n1) + parseFloat(n2));
     } else if (operand === '-') {
         return (n1 - n2);
     } else if (operand === '/') {
