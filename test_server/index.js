@@ -45,7 +45,7 @@ app.post('/getWordLengthFrequency', async (req, res) => {
 
 function doTheMath(operand, n1, n2) {
     if (operand === '+') {
-        return (n1 - n2);
+        return (n1 + n2);
     } else if (operand === '-') {
         return (n1 - n2);
     } else if (operand === '/') {
