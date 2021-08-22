@@ -23,9 +23,17 @@ app.get('/', (req, res) => {
 })
 
 app.get('/calc', (req, res) => {
-        const { operand, numberone, numbertwo } = req.query;
-        console.log(`conneted: \n ${JSON.stringify(req.query)}, ${doTheMath(operand, numberone, numbertwo)}`);        
-        res.json(doTheMath(operand, numberone, numbertwo));        
+    const data = req.query;
+    const end = str.split('?')[1].split('&');
+    let a = {}
+    for(let i of end) {
+        let [key, value] = i.split('=');
+        a[key] = value
+    }
+
+    const { operand, numberone, numbertwo } = a;
+    console.log(`conneted: \n ${JSON.stringify(req.query)}, ${doTheMath(operand, numberone, numbertwo)}`);        
+    res.json(doTheMath(operand, numberone, numbertwo));        
 });
 
 app.post('/getWordLengthFrequency', async (req, res) => {    
